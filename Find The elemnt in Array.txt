@@ -1,0 +1,34 @@
+import java.util.Scanner;
+public class Pattern2 {
+    public static int Find(int[] marks, int n,int m) {
+        int add=0;
+        for (int i = 0; i < n; i++) {
+            if(marks[i]==m){
+                add=i;
+                break;
+            }
+            add=-1;
+        }
+        return add;
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        int[] marks = new int[n];
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter the Numbers");
+            marks[i] = sc.nextInt();
+        }
+        int m=sc.nextInt();
+        System.out.println(Find(marks,n,m));
+    }
+}
+
+
+
+
+
+

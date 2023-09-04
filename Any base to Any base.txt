@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class Pattern2 {
+    public static int Any2any(int n,int b1, int b2)
+    {
+        int oct=0,i=0;
+        while(n>0)
+        {
+            int rem=n%b2;
+            n=n/b2;
+            oct=rem*(int)Math.pow(b1,i)  + oct;
+            i++;
+        }
+        return oct;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the Number: ");
+        int n = sc.nextInt();
+        System.out.print("base currently: ");
+        int b1 = sc.nextInt();
+        System.out.print("Convert to base: ");
+        int b2 = sc.nextInt();
+        System.out.println(Any2any(n,b1,b2));
+
+
+    }
+}

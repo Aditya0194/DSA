@@ -1,0 +1,24 @@
+
+import java.util.Scanner;
+
+public class Pattern2 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the value of n: ");
+        int prev=0,nex=1,op=0;
+        int n=sc.nextInt();
+        System.out.println(prev);
+        System.out.println(nex);
+
+        for(int i=2;i<n;i++){
+            op=prev+nex;
+            System.out.println(op);
+            prev=nex;
+            nex=op;
+
+        }
+
+
+
+    }
+}

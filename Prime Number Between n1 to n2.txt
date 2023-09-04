@@ -1,0 +1,35 @@
+
+import java.util.Scanner;
+
+public class Pattern2 {
+    public static void main(String[] args) {
+
+
+        int s,e;
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter the Starting: ");
+        s=sc.nextInt();
+        System.out.print("Enter the Ending: ");
+        e=sc.nextInt();
+
+        for (int m =s+1; m < e; m++) {
+            int flag = 0;
+            if(m<2)
+            {
+
+                break;
+            }
+            for (int i = 2; i*i <=m; i++) {
+                if (m % i == 0) {
+                    flag++;
+                    break;
+                }
+            }
+            if (flag == 0) {
+                System.out.println(m+" is a Prime Number");
+                
+            }
+        }
+
+    }
+}

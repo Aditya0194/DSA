@@ -1,0 +1,45 @@
+import java.util.Scanner;
+public class Pattern2 {
+    public static void Reverse(int[] Arr, int m,int n) {
+        int i=m,j=n;
+        while(i<j){
+            int temp=Arr[i];
+            Arr[i]=Arr[j];
+            Arr[j]=temp;
+            i++;
+            j--;
+        }
+    }
+    public static void Rotate(int[] Arr,int k){
+        k=k%Arr.length;
+        if(k<0)
+        {
+            k+=Arr.length;
+        }
+        //part-2 Reverse
+        Reverse(Arr,0,Arr.length-k-1);
+        //part-2 Reverse
+        Reverse(Arr,Arr.length-k,Arr.length-1);
+        //All Reverse
+        Reverse(Arr,0,Arr.length-1);
+
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int[] Arr = new int[n];
+        System.out.println("Enter the Numbers");
+        for (int i = 0; i < n; i++) {
+
+            Arr[i] = sc.nextInt();
+        }
+        Rotate(Arr,k);
+        for (int i = 0; i < n; i++) {
+
+            System.out.print(Arr[i]+"\t");
+        }
+    }
+}

@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class Pattern2 {
+    public static int Any2any(int n, int m, int b) {
+        int finals = 0, carry = 0, i = 0;
+
+        while (n > 0 || m > 0 || carry > 0) {
+            int sum = (n % 10) + (m % 10) + carry;
+            int rem = sum % b;
+            carry = sum / b;
+
+            finals += rem * (int) Math.pow(10, i);
+
+            i++;
+            n /= 10;
+            m /= 10;
+        }
+
+        return finals;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the Number: ");
+        int n = sc.nextInt();
+        System.out.print("Enter the Second Number: ");
+        int m = sc.nextInt();
+        System.out.print("base: ");
+        int b = sc.nextInt();
+        System.out.println(Any2any(n,m,b));
+
+
+    }
+}

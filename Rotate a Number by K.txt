@@ -1,0 +1,35 @@
+
+import java.util.Scanner;
+
+public class Pattern2 {
+        public static void main(String[] args) {
+            Scanner scn = new Scanner(System.in);
+            int num = scn.nextInt();
+            int k= scn.nextInt();
+            int temp = num;
+            int count = 0;
+            while (temp != 0) {
+                temp = temp / 10;
+                count++;
+            }
+            k=k%count;
+            if(k<0){
+                k=k+count;
+            }
+
+            int mult =(int)Math.pow(10,count - k);
+            int div= (int)Math.pow(10,k);
+            int x=num/div;
+            int y=num%div;
+
+            num=y*mult+x;
+
+
+
+
+            System.out.println(num);
+        }
+
+
+
+}

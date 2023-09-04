@@ -1,0 +1,35 @@
+   public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        ArrayList<Integer> list=new ArrayList<>();
+        System.out.print("Enter the Number: ");
+        int n=sc.nextInt();
+        for(int i=0;i<n;i++){
+            int val=sc.nextInt();
+            list.add(val);
+        }
+        IsPrime( list);
+        for(int val1:list){
+            System.out.print(val1+" ");
+        }
+    }
+    public static ArrayList<Integer> IsPrime(ArrayList<Integer> list){
+
+        for(int j=0;j<list.size();j++){
+            int flag=0;
+
+        for(int i=2;i*i<=list.get(j);i++){
+
+            if(list.get(j)%i==0){
+                flag=1;
+                break;
+            }
+
+            }
+        if(flag==0){
+            list.remove(j);
+            j--;
+        }
+        }
+        return list;
+    }
+}

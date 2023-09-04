@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Pattern2 {
+        public static void main(String[] args) {
+            Scanner scn = new Scanner(System.in);
+            int num= scn.nextInt();
+            int sum=0;
+            int temp=num;
+            int count=0;
+            while (temp!=0)
+            {
+                temp=temp/10;
+                count++;
+            }
+            int mult=0;
+            for(int i=1;i<=count;i++){
+                mult=(int)Math.pow(10,(num%10)-1);
+                num=num/10;
+                sum=i*mult+sum;
+
+            }
+
+            System.out.println(sum);
+
+
+        }
+
+
+
+}

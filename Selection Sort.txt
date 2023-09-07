@@ -1,0 +1,46 @@
+
+public class Pattern2 {
+
+    public static void main(String[] args) {
+        int [] arr ={5,9,2,1,8,7,2};
+        Selectionsort(arr);
+        display(arr);
+
+
+
+    }
+    public static void Selectionsort(int[] arr){
+        for (int i=0;i<arr.length;i++){
+           int min=i;
+           for (int j=i+1;j<=arr.length-1;j++){
+               if(isSmaller(arr,j,min)){
+                   min=j;
+               }
+           }
+           Swap(arr,min,i);
+        }
+    }
+
+    public static void Swap(int[] arr,int i , int j){
+        System.out.println("Swapping"+ arr[i]+"with"+arr[j]);
+        int temp= arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+
+    }
+
+    public static boolean isSmaller(int[] arr,int i,int j ){
+        System.out.println("comparing"+ arr[i]+"with"+arr[j]);
+        if(arr[i]<arr[j]){
+            return true;
+        }
+        else return false;
+    }
+    public static void display(int[] arr){
+        for (int i=0;i<arr.length;i++){
+            System.out.print(arr[i]+"\t");
+        }
+    }
+
+}
+

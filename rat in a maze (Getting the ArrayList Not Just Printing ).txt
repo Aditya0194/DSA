@@ -1,0 +1,33 @@
+  public static ArrayList<String> findPath(int[][] m, int n) {
+        boolean[][] visited = new boolean[n][n];
+        ArrayList<String> Flist = new ArrayList<>();
+        floodfill(m, 0, 0, visited, "", Flist);
+        return Flist;
+    }
+
+    public static void floodfill(int[][] m, int row, int col, boolean[][] visited, String path, ArrayList<String> Flist) {
+        // Base case: If we reach the bottom-right cell, add the path to the result list.
+        if (row == m.length - 1 && col == m[0].length - 1) {
+            Flist.add(path);
+            return;
+        }
+
+        // Check if the current cell is valid for exploration.
+        if (row < 0 || col < 0 || row >= m.length || col >= m[0].length || m[row][col] == 0 || visited[row][col]) {
+            return;
+        }
+
+        // Mark the current cell as visited.
+        visited[row][col] = true;
+
+        // Explore all four possible directions.
+        floodfill(m, row - 1, col, visited, path + "U", Flist); // Up
+        floodfill(m, row, col - 1, visited, path + "L", Flist); // Left
+        floodfill(m, row + 1, col, visited, path + "D", Flist); // Down
+        floodfill(m, row, col + 1, visited, path + "R", Flist); // Right
+
+        // Mark the current cell as unvisited (backtrack) to explore other paths.
+        visited[row][col] = false;
+    }
+
+}

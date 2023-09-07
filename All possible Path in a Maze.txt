@@ -1,0 +1,53 @@
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Pattern2 {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int sr=sc.nextInt();
+        int sco=sc.nextInt();
+        int dr=sc.nextInt();
+        int dc=sc.nextInt();
+
+
+
+            ArrayList<String> baap = GetStairs(sr,sco,dr,dc);
+            for (String ss : baap) {
+                System.out.print("[" + ss + "]"+"\t");
+            }
+    }
+    public static ArrayList<String> GetStairs(int sr,int sco, int dr,int dc){
+        if (sr==dr && sco==dc){
+            ArrayList<String> list=new ArrayList<>();
+            list.add("");
+            return list;
+        }
+        ArrayList<String> path1=new ArrayList<>();
+        ArrayList<String> path2=new ArrayList<>();
+        if(sr!=dr) {
+            path1 = GetStairs(sr + 1, sco, dr, dc);
+        }
+        if(sco!=dc) {
+            path2 = GetStairs(sr, sco + 1, dr, dc);
+        }
+
+
+        ArrayList<String> path=new ArrayList<>();
+        for(String val:path1){
+            path.add('v'+val);
+        }
+        for(String val:path2){
+            path.add('h'+val);
+        }
+
+
+        return path;
+    }
+
+}
+
+

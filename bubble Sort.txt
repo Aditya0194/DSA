@@ -1,0 +1,44 @@
+
+public class Pattern2 {
+
+    public static void main(String[] args) {
+        int [] arr ={5,9,2,1,8,7,2};
+        bubblesort(arr);
+        display(arr);
+
+
+
+    }
+    public static void bubblesort(int[] arr){
+        for (int i=1;i<=arr.length-1;i++){
+            for(int j=0;j<arr.length-i;j++){
+                if(isBigger(arr,j+1,j)){
+                    Swap(arr,j+1,j);
+                }
+            }
+        }
+    }
+
+    public static void Swap(int[] arr,int i , int j){
+        System.out.println("Swapping"+ arr[i]+"with"+arr[j]);
+        int temp= arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+
+    }
+
+    public static boolean isBigger(int[] arr,int i,int j ){
+        System.out.println("comparing"+ arr[i]+"with"+arr[j]);
+        if(arr[i]>arr[j]){
+            return true;
+        }
+        else return false;
+    }
+    public static void display(int[] arr){
+        for (int i=0;i<arr.length;i++){
+            System.out.print(arr[i]+"\t");
+        }
+    }
+
+}
+

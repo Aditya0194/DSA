@@ -1,0 +1,25 @@
+class Solution {
+    public int uniquePaths(int m, int n) {
+        return getStairs(0, 0, m - 1, n - 1);
+    }
+
+    public int getStairs(int sr, int sco, int dr, int dc) {
+        if (sr == dr && sco == dc) {
+            return 1;
+        }
+
+        int count1 = 0;
+        int count2 = 0;
+
+        if (sr != dr) {
+            count1 += getStairs(sr + 1, sco, dr, dc);
+        }
+        if (sco != dc) {
+            count2 += getStairs(sr, sco + 1, dr, dc);
+        }
+
+        int count = count1 + count2;
+
+        return count;
+    }
+}

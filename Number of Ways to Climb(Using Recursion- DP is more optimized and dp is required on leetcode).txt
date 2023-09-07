@@ -1,0 +1,31 @@
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Pattern2 {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+
+           int baap = climbStairs(n);
+        System.out.println(baap);
+    }
+    public static int climbStairs(int n) {if (n == 0) {
+        return 1; // There's one way to climb 0 stairs (doing nothing).
+    } else if (n < 0) {
+        return 0; // There's no way to climb a negative number of stairs.
+    }
+
+        int count1 = climbStairs(n - 1);
+        int count2 = climbStairs(n - 2);
+        
+
+        return count1 + count2;
+    }
+
+}
+
+

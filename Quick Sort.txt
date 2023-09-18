@@ -1,0 +1,50 @@
+public class Pattern2 {
+
+    public static void main(String[] args) {
+        int[] arr = {7, 5, 6, 4, 1, 2, 3, 9, 8, 7, 8, 9, 8, 4, 5, 1};
+        quickSort(arr, 0, arr.length - 1);
+        display(arr);
+    }
+
+    public static void quickSort(int[] arr,int lo,int hi){
+        if (lo>=hi){
+            return;
+        }
+        int pivot=arr[hi];
+        int p=parititionofArray(arr,pivot,lo,hi);
+        quickSort(arr,lo,p-1);
+        quickSort(arr,p+1,hi);
+
+    }
+
+    public static int parititionofArray(int [] arr,int pivot,int lo,int hi){
+        int i=lo;
+        int j=lo;
+
+        while(i<=hi){
+            if(arr[i]<=pivot){
+                Swap(arr,i,j);
+                i++;
+                j++;
+
+            }
+            else{
+                i++;
+            }
+        }
+        return j-1;
+    }
+
+    public static void Swap(int[] arr,int i,int j){
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+    }
+
+
+    public static void display(int[] arr) {
+        for (int val : arr) {
+            System.out.print(val + "\t");
+        }
+    }
+}
